@@ -39,6 +39,7 @@ npm install discord.js
 Get API_KEY From : 
 ```bash
 https://allsportsapi.com/
+```
 
 Clone the project
 ```bash
