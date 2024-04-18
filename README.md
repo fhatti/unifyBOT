@@ -15,16 +15,6 @@
 
 
 
-### :key: Environment Variables
-To run this project, you will need to add the following environment variables to your .env file
-`TOKEN`
-
-`GUILD_ID`
-
-`CLIENT_ID`
-
-
-
 ## :toolbox: Getting Started
 
 ### :bangbang: Prerequisites
@@ -71,6 +61,16 @@ Start the server
 ```bash
 nodemon
 ```
+
+### :key: Environment Variables
+To run this project, you will need to add the following environment variables to your .env file
+`TOKEN`
+
+`GUILD_ID`
+
+`CLIENT_ID`
+
+
 
 
 ## :handshake: Contact
