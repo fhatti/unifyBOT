@@ -17,6 +17,8 @@ const client = new Client({
   ],
 });
 
+const handleToday = require("./commands/today")
+
 client.on("ready", (c) => {
   {
     console.log(`${c.user.username} is online ;)`);
@@ -30,9 +32,6 @@ client.on("messageCreate", async (message) => {
   if (message.content === "unify") {
     await message.reply("FOOTBALL!");
   }
-  if (message.content === "FCSB") await message.reply("E STEAUA!");
-  if (message.content === "mue")
-    await message.reply("ii dam lu bbc si noi si AI ul hahahahahha!");
 });
 
 client.on("interactionCreate", async (interaction) => {
@@ -87,6 +86,9 @@ client.on("interactionCreate", async (interaction) => {
       .setFooter({ text: "Footer TExt " })
       .setTimestamp();
     interaction.reply({ embeds: [profileEmbed] });
+  }
+  if (interaction.commandName === "today") {
+   handleToday(interaction);
   }
 });
 

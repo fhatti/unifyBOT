@@ -50,6 +50,36 @@ const commands = [
     name: "profile",
     description: "Sends an profile embed",
   },
+  {
+    name: "today",
+    description: "Sends you a list of events happening today!",
+    options: [
+      {
+        name: "fixture",
+        description: "Today´s fixture",
+        type: ApplicationCommandOptionType.Number,
+        required: false,
+        choices: [
+          {
+            name: "La Liga",
+            value:1,
+          },
+          {
+            name: "Premier League",
+            value:2,
+          },
+          {
+            name: "Serie A",
+            value:3,
+          },
+          {
+            name:"Superliga",
+            value:4,
+          }
+        ],
+      },
+    ],
+  },
 ];
 
 const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
