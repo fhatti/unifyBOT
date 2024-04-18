@@ -51,35 +51,43 @@ const commands = [
     description: "Sends an profile embed",
   },
   {
-    name: "today",
+    name: "fixture",
     description: "Sends you a list of events happening today!",
-    options: [
+    options:[
       {
-        name: "fixture",
-        description: "Today´s fixture",
+        name:"leagues",
+        description:"Pick your league",
         type: ApplicationCommandOptionType.Number,
-        required: false,
-        choices: [
-          {
-            name: "La Liga",
-            value:1,
-          },
+        required:true,
+        choices:[
           {
             name: "Premier League",
+            value:1
+          },
+          {
+            name:"La Liga",
             value:2,
           },
           {
-            name: "Serie A",
+            name:"Serie A",
             value:3,
           },
           {
             name:"Superliga",
             value:4,
+          },
+          {
+            name:"Bundesliga",
+            value:5,
+          },
+          {
+            name:"Ligue 1 Uber Eats",
+            value:6,
           }
-        ],
+        ]
       },
-    ],
-  },
+    ]
+      },
 ];
 
 const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
