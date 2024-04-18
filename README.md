@@ -36,8 +36,11 @@ npm install discord.js
 
 ### :running: Run Locally
 
-Clone the project
+Get API_KEY From : 
+```bash
+https://allsportsapi.com/
 
+Clone the project
 ```bash
 https://github.com/fhatti/unifyBOT
 ```
@@ -64,11 +67,16 @@ nodemon
 
 ### :key: Environment Variables
 To run this project, you will need to add the following environment variables to your .env file
+
 `TOKEN`
 
 `GUILD_ID`
 
 `CLIENT_ID`
+
+`API_KEY`
+
+
 
 
 
