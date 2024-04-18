@@ -78,7 +78,12 @@ To run this project, you will need to add the following environment variables to
 `API_KEY`
 
 
+### :test_tube: Demo?
 
+Wanna see a demo ?
+```bash
+https://discord.gg/cU3vDUGK
+```
 
 
 
