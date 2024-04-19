@@ -63,6 +63,9 @@ client.on("interactionCreate", async (interaction) => {
       handleFixture(interaction);
       break;
   }
+  if (interaction.commandName === "today") {
+   handleToday(interaction);
+  }
 });
 
 client.login(process.env.TOKEN);
