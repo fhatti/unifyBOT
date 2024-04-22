@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { Embed, EmbedBuilder, User } = require("discord.js");
 const getDate = require("../utils/getDateAsFormattedString.js");
+const leagues = require("../utils/returnLeague.js");
 
 // Now you can use getDate() function as before
 
@@ -71,8 +72,8 @@ module.exports = function fixture(interaction) {
                   fixture.event_status === "Finished"
                     ? `${fixture.event_status}`
                     : `${fixture.event_time} ` || fixture.event_status === 1
-                    ? "Live"
-                    : `${fixture.event_time}`
+                    ? `${fixture.event_time}`
+                    : `Live`
                 }`,
               },
               {

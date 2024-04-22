@@ -1,30 +1,14 @@
-require("dotenv").config();
-const {
-  Client,
-  IntentsBitField,
-  Embed,
-  EmbedBuilder,
-  MessageEmbed,
-  CommandInteraction,
-} = require("discord.js");
-
-const client = new Client({
-  intents: [
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMembers,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent,
-  ],
-});
-
+const client = require("./utils/discordClient");
 const handleFixture = require("./commands/fixture");
 const handleAdd = require("./commands/add");
 const handleProfile = require("./commands/profile");
 const handleDelete = require("./commands/delete");
+const handleFavLeague = require("./channels/favLeague/favLeague")
 
 client.on("ready", (c) => {
   {
     console.log(`${c.user.username} is online ;)`);
+    
   }
 });
 
@@ -38,33 +22,29 @@ client.on("messageCreate", async (message) => {
 });
 
 client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isCommand()) return;
-  if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isCommand() && !interaction.isButton()) return;
 
-  const commandName = interaction.commandName;
-  switch (commandName) {
-    case "unify":
-      await interaction.reply("FOOTBALL!");
-      break;
-
-    case "add":
-      await handleAdd(interaction);
-      break;
-
-    case "delete":
-      handleDelete(interaction);
-      break;
-
-    case "profile":
-      handleProfile(interaction);
-      break;
-
-    case "fixture":
-      handleFixture(interaction);
-      break;
-  }
-  if (interaction.commandName === "today") {
-   handleToday(interaction);
+  if (interaction.isCommand()) {
+    const commandName = interaction.commandName;
+    switch (commandName) {
+      case "unify":
+        await interaction.reply("FOOTBALL!");
+        break;
+      case "add":
+        await handleAdd(interaction);
+        break;
+      case "delete":
+        handleDelete(interaction);
+        break;
+      case "profile":
+        handleProfile(interaction);
+        break;
+      case "fixture":
+        handleFixture(interaction);
+        break;
+    }
+  } else if (interaction.isButton()) {
+    await handleFavLeague(interaction);
   }
 });
 

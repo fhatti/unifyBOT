@@ -3,7 +3,6 @@ module.exports  = async function profile(interaction)
 {
     const userUsername = interaction.user.username;
     const avatarUrl = interaction.user.displayAvatarURL();
-    console.log(avatarUrl);
     const profileEmbed = new EmbedBuilder()
       .setAuthor({
         name: userUsername,
@@ -24,5 +23,5 @@ module.exports  = async function profile(interaction)
       .setImage("https://i.imgur.com/AfFp7pu.png")
       .setFooter({ text: "Footer TExt " })
       .setTimestamp();
-    interaction.reply({ embeds: [profileEmbed] });
+    await interaction.reply({ embeds: [profileEmbed] });
 }
