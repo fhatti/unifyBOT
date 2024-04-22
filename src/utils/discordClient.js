@@ -15,5 +15,4 @@ const client = new Client({
     GatewayIntentBits.Guilds
   ],
 });
-client.login(process.env.TOKEN);
 module.exports = client;

@@ -62,7 +62,7 @@ module.exports = function fixture(interaction) {
             .setTimestamp()
             .setURL("https://www.instagram.com/unifyfootball.ro/");
 
-          fixtures.forEach((fixture) => {
+          fixtures.forEach( async (fixture) => {
             fixtureEmbed.setTitle(`Today Matches - ${fixture.league_name} `);
             fixtureEmbed.setThumbnail(`${fixture.league_logo}`);
             fixtureEmbed.addFields(
