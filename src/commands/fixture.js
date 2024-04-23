@@ -1,7 +1,6 @@
 require("dotenv").config();
-const { Embed, EmbedBuilder, User } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const getDate = require("../utils/getDateAsFormattedString.js");
-const leagues = require("../utils/returnLeague.js");
 
 // Now you can use getDate() function as before
 
@@ -62,7 +61,7 @@ module.exports = function fixture(interaction) {
             .setTimestamp()
             .setURL("https://www.instagram.com/unifyfootball.ro/");
 
-          fixtures.forEach( async (fixture) => {
+          fixtures.forEach(async (fixture) => {
             fixtureEmbed.setTitle(`Today Matches - ${fixture.league_name} `);
             fixtureEmbed.setThumbnail(`${fixture.league_logo}`);
             fixtureEmbed.addFields(

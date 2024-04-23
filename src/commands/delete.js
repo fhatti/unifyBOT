@@ -1,11 +1,4 @@
-const {
-    Client,
-    IntentsBitField,
-    Embed,
-    EmbedBuilder,
-    MessageEmbed,
-    CommandInteraction,
-  } = require("discord.js");
+
 
 module.exports = async function handleDelete(interaction)
 {
