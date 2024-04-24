@@ -148,7 +148,6 @@ function buildTopScorerEmbed(topScorerData)
     { name: "\u200B", value: "\u200B" }
   )
   embed.setThumbnail(leagues["superliga"].logo);
-  embed.setImage(leagues["superliga"].logo);
   })
   if (!topScorerData || topScorerData.length === 0) {
     return embed.setDescription("No top scorers available");

@@ -9,6 +9,7 @@ const {
 
 const initializeFavLeagueChannel = require("../channels/favLeague/channelInit");
 const initSuperligaChannel = require("../channels/dailyForFans/superliga/channelInit");
+const initPremierLeagueChannel = require("../channels/dailyForFans/premierLeague/channelInit")
 
 const leagues = require("../utils/returnLeague");
 const handleAdd = require("../commands/add");
@@ -48,6 +49,7 @@ class DiscordBotClient {
         console.log(`${c.user.username} is online ;)`);
         initializeFavLeagueChannel(this.client, c);
         initSuperligaChannel(this.client);
+        initPremierLeagueChannel(this.client);
       }
     });
   }

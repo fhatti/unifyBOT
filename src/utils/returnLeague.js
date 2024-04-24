@@ -15,6 +15,7 @@ const leagues = {
     leagueId: "152",
     name: "Premier League",
     id: "1229424748606263397",
+    channelId:"1232775365752262806",
   },
   laLiga: {
     leagueId: 168,
