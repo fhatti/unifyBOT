@@ -15,7 +15,21 @@ const leagues = {
     leagueId: "152",
     name: "Premier League",
     id: "1229424748606263397",
-    channelId:"1232775365752262806",
+    categoryId:"1232775365752262806",
+    channels:[
+      {
+        name:"standings",
+        channelId:"1233145650737315903",
+      },
+      {
+        name:"fixtures",
+        channelId:"1233145947668742204",
+      },
+      {
+        name:"top-scorers",
+        channelId:"1233145697633828945",
+      },
+    ],
   },
   laLiga: {
     leagueId: 168,

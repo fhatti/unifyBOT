@@ -11,6 +11,7 @@ const initializeFavLeagueChannel = require("../channels/favLeague/channelInit");
 const initSuperligaChannel = require("../channels/dailyForFans/superliga/channelInit");
 const initPremierLeagueChannel = require("../channels/dailyForFans/premierLeague/channelInit")
 
+
 const leagues = require("../utils/returnLeague");
 const handleAdd = require("../commands/add");
 const handleDelete = require("../commands/delete");
@@ -24,6 +25,7 @@ class DiscordBotClient {
   token;
   clientId;
   guildId;
+  channel;
 
   constructor(token, clientId, guildId) {
     this.token = token;

@@ -8,6 +8,9 @@ module.exports = async function getData(type,leagueId) {
   }&from=${getDate()}&to=${getDate()}&withPlayerStats=1`;
         const response = await fetch(fixtureUrl);
         const data = await response.json();
+        // if (typeof leagueId === 'number') {
+        //     leagueId = leagueId.toString();
+        //   }
 
         if (!data || data.length === 0) {
             console.log("No data");
@@ -17,6 +20,6 @@ module.exports = async function getData(type,leagueId) {
             return fixtures;
         }
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error returning data from API:", error);
     }
 };
