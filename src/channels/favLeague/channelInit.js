@@ -1,15 +1,20 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle , TextChannel } = require("discord.js");
+const {
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  TextChannel,
+} = require("discord.js");
 const leagues = require("../../utils/returnLeague");
 
-async function initializeFavLeagueChannel(client,c) {
+async function initializeFavLeagueChannel(client, c) {
   try {
-    const channel = await client.channels.cache.get("1232036699408695357");
+    const channel = await client.channels.cache.get("1233449325292552315");
     if (!channel) return;
-    const existingMessage = await channel.messages.fetch({limit:1});
+    const existingMessage = await channel.messages.fetch({ limit: 1 });
     const msg = existingMessage.first();
     if (msg) {
-        return;
-      }
+      return;
+    }
     const row = new ActionRowBuilder();
     for (const [leagueName, league] of Object.entries(leagues)) {
       row.components.push(

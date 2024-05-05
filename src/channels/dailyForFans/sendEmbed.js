@@ -1,5 +1,3 @@
-const { EmbedBuilder } = require("discord.js");
-
 module.exports = function sendMessage(channel, embed) {
   channel
     .send({ embeds: [embed] })

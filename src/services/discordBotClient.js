@@ -9,8 +9,10 @@ const {
 
 const initializeFavLeagueChannel = require("../channels/favLeague/channelInit");
 const initSuperligaChannel = require("../channels/dailyForFans/superliga/channelInit");
-const initPremierLeagueChannel = require("../channels/dailyForFans/premierLeague/channelInit")
-
+const initPremierLeagueChannel = require("../channels/dailyForFans/premierLeague/channelInit");
+const initLaLigaChannel = require("../channels/dailyForFans/laLiga/channelInit");
+const initLigueOneChannel = require("../channels/dailyForFans/leagueOne/channelInit");
+const initBundesligaChannel = require("../channels/dailyForFans/bundesliga/channelInit");
 
 const leagues = require("../utils/returnLeague");
 const handleAdd = require("../commands/add");
@@ -18,7 +20,6 @@ const handleDelete = require("../commands/delete");
 const handleFixture = require("../commands/fixture");
 const handleProfile = require("../commands/profile");
 const handleFavLeague = require("../channels/favLeague/buttonInteraction");
-
 
 class DiscordBotClient {
   client;
@@ -41,7 +42,7 @@ class DiscordBotClient {
     this.clientId = clientId;
     this.guildId = guildId;
   }
- async handleLogin() {
+  async handleLogin() {
     this.client.login(this.token);
   }
   async handleReadyEvents() {
@@ -52,6 +53,9 @@ class DiscordBotClient {
         initializeFavLeagueChannel(this.client, c);
         initSuperligaChannel(this.client);
         initPremierLeagueChannel(this.client);
+        initLaLigaChannel(this.client);
+        initLigueOneChannel(this.client);
+        initBundesligaChannel(this.client);
       }
     });
   }
@@ -70,7 +74,7 @@ class DiscordBotClient {
     //
   }
 
- async handleInteractionCreate() {
+  async handleInteractionCreate() {
     this.client.on("interactionCreate", async (interaction) => {
       if (!interaction.isCommand() && !interaction.isButton()) return;
 
@@ -94,15 +98,15 @@ class DiscordBotClient {
             break;
         }
       } else if (interaction.isButton()) {
-       try {
-        await handleFavLeague(interaction);
-       } catch (error) {
-        console.log("unknow interaction",interaction.type, error)
-       }
+        try {
+          await handleFavLeague(interaction);
+        } catch (error) {
+          console.log("unknow interaction", interaction.type, error);
+        }
       }
     });
   }
-   async registerCommands() {
+  async registerCommands() {
     const commands = [
       {
         name: "add",
@@ -185,16 +189,15 @@ class DiscordBotClient {
     ];
 
     const rest = new REST({ version: "10" }).setToken(this.token);
-try {
-    await rest.put(
-          Routes.applicationGuildCommands(this.clientId, this.guildId),
-          { body: commands }
-        );
-        console.log("Slash commands were registered successfully!");
-} catch (error) {
-  console.log(error);
-}
-
+    try {
+      await rest.put(
+        Routes.applicationGuildCommands(this.clientId, this.guildId),
+        { body: commands }
+      );
+      console.log("Slash commands were registered successfully!");
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 

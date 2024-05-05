@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require("discord.js");
 
- module.exports = function createTopScorerEmbed(data) {
-  const topScorerOfTheWeek = data[0];
+ module.exports =  function createTopScorerEmbed(data) {
+  const playerOfTheWeek = data[0]
   const embed = new EmbedBuilder()
     .setAuthor({
       name: "Unify BOT presents you",
@@ -10,13 +10,13 @@ const { EmbedBuilder } = require("discord.js");
     })
     .setColor("#2A9B59")
     .setTimestamp()
-    .setURL("https://www.instagram.com/unifyfootball.ro/");
-  embed.addFields(
+    .setURL("https://www.instagram.com/unifyfootball.ro/")
+    .addFields(
     {
       name: "Top Scorer Of The Week Award goes to  ⤵️",
-      value: `${topScorerOfTheWeek.player_name}`,
+      value: `${playerOfTheWeek.player_name}`, 
     },
-    { name: "\u200B", value: "\u200B" }
+    { name: "\u200B", value: "\u200B" },
   );
   data.sort((a, b) => {
     if (a.goals !== b.goals) {

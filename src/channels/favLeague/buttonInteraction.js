@@ -1,9 +1,8 @@
 async function handleFavLeague(interaction) {
   await interaction.reply({
-    content:"processing role assignment...",
-    ephemeral:true,
+    content: "processing role assignment...",
+    ephemeral: true,
   });
-
 
   const role = await interaction.guild.roles.cache.get(interaction.customId);
   if (!role) {
